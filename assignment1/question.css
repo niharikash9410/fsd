@@ -1,0 +1,25 @@
+body {
+    background-color: lightblue;
+    font-family: Arial;
+    
+}
+
+h1 {
+    text-align: center;
+    color: rgb(7, 7, 17);
+}
+
+h3 {
+    color: rgb(39, 40, 41);
+}
+
+button {
+    background-color: rgb(14, 162, 206);
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(15, 222, 237);
+}
