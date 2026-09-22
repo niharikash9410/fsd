@@ -1,107 +1,182 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Document</title> 
-    <link rel="stylesheet" href="question.css"> 
-</head> 
 
-<body> 
+<!DOCTYPE html>
+<html lang="en">
 
-    <h1>QUIZ QUESTIONS</h1> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div id="q1">
+    <title>Web Development Quiz</title>
 
-        <h3>1. Which tag is used to comment?</h3> 
+    <link rel="stylesheet" href="question.css">
+</head>
 
-        <input type="radio" name="q1">!
-        <br> 
+<body>
 
-        <input type="radio" name="q1">comment
-        <br> 
+    <!-- Student Details -->
+    <div id="quiz-container">
 
-        <input type="radio" name="q1">#
-        <br> 
+        <h1>Web Development Quiz</h1>
 
-        <input type="radio" name="q1">/
-        <br><br> 
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <br><br>
 
-        <button onclick="next1()">Next</button>
+        <label>Roll Number:</label>
+        <input type="text" id="roll" placeholder="Enter your roll number">
+        <br><br>
 
-    </div>
+        <label>Branch:</label>
+        <input type="text" id="branch" placeholder="Enter your branch">
+        <br><br>
 
-
-    <div id="q2" style="display: none;">
-
-        <h3>2. What does CSS stand for?</h3> 
-
-        <input type="radio" name="q5"> 
-        Cascading Style Sheets 
-        <br> 
-
-        <input type="radio" name="q5"> 
-        Computer Style Sheets 
-        <br> 
-
-        <input type="radio" name="q5"> 
-        Creative Style System 
-        <br> 
-
-        <input type="radio" name="q5"> 
-        Colorful Style Sheets 
-        <br><br> 
-
-        <button onclick="next2()">Next</button>
+        <button type="button" onclick="startQuiz()">Start Quiz</button>
 
     </div>
 
 
-    <div id="q3" style="display: none;">
+    <!-- Quiz -->
+    <div id="quiz" style="display:none;">
 
-        <h3>3. Which symbol is used to select an ID in CSS?</h3> 
-
-        <input type="radio" name="q6"> 
-        # 
-        <br> 
-
-        <input type="radio" name="q6"> 
-        . 
-        <br> 
-
-        <input type="radio" name="q6">*
-        <br> 
-
-        <input type="radio" name="q6">@
-        <br><br> 
-
-        <button onclick="next3()">Next</button>
-
-    </div>
+        <h1>Web Development Quiz</h1>
 
 
-    <div id="q4" style="display: none;">
+        <!-- Question 1 -->
+        <div class="question" id="question1">
 
-        <h3>4. Which symbol is used to select a class in CSS?</h3> 
+            <p>1. What does HTML stand for?</p>
 
-        <input type="radio" name="q7">.
-        <br> 
+            <button onclick="checkAnswer(this, true)">
+                Hyper Text Markup Language
+            </button>
 
-        <input type="radio" name="q7">#
-        <br> 
+            <button onclick="checkAnswer(this, false)">
+                High Text Machine Language
+            </button>
 
-        <input type="radio" name="q7">*
-        <br> 
+            <button onclick="checkAnswer(this, false)">
+                Hyperlink Text Markup Language
+            </button>
 
-        <input type="radio" name="q7">@
-        <br><br> 
+            <button onclick="checkAnswer(this, false)">
+                Home Tool Markup Language
+            </button>
 
-        <button onclick="submitQuiz()">Submit</button>
+            <br><br>
+
+            <button class="next-btn" onclick="nextQuestion(1)">
+                Next
+            </button>
+
+        </div>
+
+
+        <!-- Question 2 -->
+        <div class="question" id="question2" style="display:none;">
+
+            <p>2. Which language is used to style a webpage?</p>
+
+            <button onclick="checkAnswer(this, false)">
+                HTML
+            </button>
+
+            <button onclick="checkAnswer(this, true)">
+                CSS
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                JavaScript
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                Python
+            </button>
+
+            <br><br>
+
+            <button class="next-btn" onclick="nextQuestion(2)">
+                Next
+            </button>
+
+        </div>
+
+
+        <!-- Question 3 -->
+        <div class="question" id="question3" style="display:none;">
+
+            <p>3. Which language is used to add interactivity to a webpage?</p>
+
+            <button onclick="checkAnswer(this, false)">
+                HTML
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                CSS
+            </button>
+
+            <button onclick="checkAnswer(this, true)">
+                JavaScript
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                SQL
+            </button>
+
+            <br><br>
+
+            <button class="next-btn" onclick="nextQuestion(3)">
+                Next
+            </button>
+
+        </div>
+
+
+        <!-- Question 4 -->
+        <div class="question" id="question4" style="display:none;">
+
+            <p>4. Which HTML tag is used to create a hyperlink?</p>
+
+            <button onclick="checkAnswer(this, false)">
+                &lt;p&gt;
+            </button>
+
+            <button onclick="checkAnswer(this, true)">
+                &lt;a&gt;
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                &lt;h1&gt;
+            </button>
+
+            <button onclick="checkAnswer(this, false)">
+                &lt;img&gt;
+            </button>
+
+            <br><br>
+
+            <button class="next-btn" onclick="submitQuiz()">
+                Submit Quiz
+            </button>
+
+        </div>
+
+
+        <!-- Result -->
+        <div id="result" style="display:none;">
+
+            <h2>Quiz Completed!</h2>
+
+            <p id="student-info"></p>
+
+            <p id="score"></p>
+
+        </div>
 
     </div>
 
 
     <script src="question.js"></script>
 
-</body> 
+</body>
+
 </html>
